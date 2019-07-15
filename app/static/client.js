@@ -28,8 +28,12 @@ function analyze() {
   };
   xhr.onload = function(e) {
     if (this.readyState === 4) {
+      var foundList = [];
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `Result = ${response["result"]}`;
+      var resp = response["result"];
+      if (resp.slice(0,3) != 'not')
+        foundList.push(resp);
+      el("result-label").innerHTML = `Breeds found: ${foundList.join(' ')}`;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
