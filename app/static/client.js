@@ -33,7 +33,9 @@ function analyze() {
       var resp = response["result"];
       if (resp.slice(0,3) != 'not')
         foundList.push(resp);
-      el("result-label").innerHTML = `Breeds found: ${foundList.join(' ')}`;
+      //el("result-label").innerHTML = `Breeds found: ${foundList.join(' ')}`;
+      el("result-label").innerHTML = (resp=='poodle' ? 'Your dog appears to be a doodle-dog!'
+                                      : 'Doodle-dog not detected!');
     }
     el("analyze-button").innerHTML = "Analyze";
   };
